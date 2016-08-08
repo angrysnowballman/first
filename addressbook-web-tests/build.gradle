@@ -8,4 +8,5 @@ repositories {
 
 dependencies {
     compile 'org.testng:testng:6.9.10'
+    compile 'com.applitools:eyes-selenium-java3:3.2'
 }
