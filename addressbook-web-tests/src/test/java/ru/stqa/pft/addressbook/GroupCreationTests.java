@@ -15,35 +15,22 @@ import org.openqa.selenium.*;
 import static org.openqa.selenium.OutputType.*;
 
 public class GroupCreationTests {
-//    FirefoxDriver wd;
-    WebDriver wd;
-
-
+    FirefoxDriver wd;
+    
     @BeforeMethod
     public void setUp() throws Exception {
-        System.setProperty("webdriver.gecko.driver", "C:\\Program Files\\GekoDriver\\geckodriver.exe");
         wd = new FirefoxDriver();
         wd.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
-
     }
     
     @Test
     public void GroupCreationTests() {
-        wd.get("http://localhost/addressbook/");
-        wd.findElement(By.name("user")).click();
-        wd.findElement(By.name("user")).sendKeys("\\undefined");
-        wd.findElement(By.name("pass")).click();
-        wd.findElement(By.name("pass")).sendKeys("\\undefined");
-        wd.findElement(By.id("LoginForm")).click();
-        wd.findElement(By.name("user")).click();
-        wd.findElement(By.name("user")).clear();
-        wd.findElement(By.name("user")).sendKeys("admin");
-        wd.findElement(By.id("LoginForm")).click();
-        wd.findElement(By.name("pass")).click();
-        wd.findElement(By.name("pass")).clear();
-        wd.findElement(By.name("pass")).sendKeys("secret");
-        wd.findElement(By.xpath("//form[@id='LoginForm']/input[3]")).click();
-        wd.findElement(By.linkText("groups")).click();
+        wd.get("https://yandex.ru/");
+        wd.findElement(By.id("wd-wrapper-_topnews")).click();
+        wd.findElement(By.linkText("Маркет")).click();
+        wd.findElement(By.linkText("Компьютеры")).click();
+        wd.findElement(By.xpath("//div[@class='popular__wrapper']/div/a[1]/img")).click();
+        wd.findElement(By.cssSelector("img.popular-snippet__image")).click();
     }
     
     @AfterMethod
