@@ -21,16 +21,20 @@ public class GroupCreationTests {
     public void setUp() throws Exception {
         wd = new FirefoxDriver();
         wd.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
+        wd.get("http://localhost/addressbook/");
+        wd.findElement(By.id("LoginForm")).click();
+        wd.findElement(By.name("user")).click();
+        wd.findElement(By.name("user")).clear();
+        wd.findElement(By.name("user")).sendKeys("admin");
+        wd.findElement(By.name("pass")).click();
+        wd.findElement(By.name("pass")).clear();
+        wd.findElement(By.name("pass")).sendKeys("secret");
+        wd.findElement(By.xpath("//form[@id='LoginForm']/input[3]")).click();
     }
     
     @Test
-    public void GroupCreationTests() {
-        wd.get("https://yandex.ru/");
-        wd.findElement(By.id("wd-wrapper-_topnews")).click();
-        wd.findElement(By.linkText("Маркет")).click();
-        wd.findElement(By.linkText("Компьютеры")).click();
-        wd.findElement(By.xpath("//div[@class='popular__wrapper']/div/a[1]/img")).click();
-        wd.findElement(By.cssSelector("img.popular-snippet__image")).click();
+    public void testGroupCreation() {
+
     }
     
     @AfterMethod
