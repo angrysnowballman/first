@@ -1,10 +1,30 @@
 apply plugin: 'java'
+compileJava.options.encoding = 'UTF-8'
 
-repositories {
+repositories{
+    mavenLocal()
     mavenCentral()
+}
+
+configurations {
+    agent
 }
 
 dependencies {
     compile 'org.testng:testng:6.9.10'
     compile 'org.seleniumhq.selenium:selenium-java:2.53.0'
+    compile 'org.hamcrest:java-hamcrest:2.0.0.0'
+    compile 'com.thoughtworks.xstream:xstream:1.4.9'
+    agent "org.aspectj:aspectjweaver:1.8.0"
+    compile "ru.yandex.qatools.allure:allure-testng-adaptor:1.4.0.RC4"
+    compile 'org.atmosphere.client:javascript:2.3.2'
+    compile 'org.webjars.bower:jQuery:2.2.3'
+//    compile 'oracle-internal:ojdbc14:11.1.0.6'
+    compile 'com.oracle:ojdbc6:11.1.0.6'
+//    compile 'ru.stqa.selenium:webdriver-wrapper:2.0'
+//    compile 'ru.yandex.qatools.allure:allure-core:1.5.0.RC2'
+//    compile 'ru.yandex.qatools.allure:allure-java-annotations:1.5.0.RC2'
+//    compile 'ru.yandex.qatools.allure:allure-java-annotations:1.5.0-RC1'
+//    compile 'org.slf4j:jul-to-slf4j:1.7.21'
+//    compile 'net.lightbody.bmp:browsermob-legacy:2.1.1'
 }
