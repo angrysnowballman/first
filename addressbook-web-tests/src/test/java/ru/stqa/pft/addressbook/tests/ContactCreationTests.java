@@ -8,7 +8,7 @@ import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.*;
-import ru.stqa.pft.addressbook.model.ContactDaa;
+import ru.stqa.pft.addressbook.model.ContactData;
 
 public class ContactCreationTests {
     FirefoxDriver wd;
@@ -23,7 +23,7 @@ public class ContactCreationTests {
     @Test
     public void testContactCreation() {
         gotoAddContact();
-        fillContact(new ContactDaa("Petr", "Mushroom", "Tverskaya st.68", "84954589565", "84956235151", "1964", "test@inbox_1.ru"));
+        fillContact(new ContactData("Petr", "Mushroom", "Tverskaya st.68", "84954589565", "84956235151", "1964", "test@inbox_1.ru"));
         submitContactCreation();
     }
 
@@ -31,22 +31,22 @@ public class ContactCreationTests {
         wd.findElement(By.name("submit")).click();
     }
 
-    private void fillContact(ContactDaa contactDaa) {
+    private void fillContact(ContactData contactData) {
         wd.findElement(By.name("firstname")).click();
         wd.findElement(By.name("firstname")).clear();
-        wd.findElement(By.name("firstname")).sendKeys(contactDaa.getFirst_name());
+        wd.findElement(By.name("firstname")).sendKeys(contactData.getFirst_name());
         wd.findElement(By.name("lastname")).click();
         wd.findElement(By.name("lastname")).clear();
-        wd.findElement(By.name("lastname")).sendKeys(contactDaa.getLast_name());
+        wd.findElement(By.name("lastname")).sendKeys(contactData.getLast_name());
         wd.findElement(By.name("address")).click();
         wd.findElement(By.name("address")).clear();
-        wd.findElement(By.name("address")).sendKeys(contactDaa.getAdress());
+        wd.findElement(By.name("address")).sendKeys(contactData.getAdress());
         wd.findElement(By.name("home")).click();
         wd.findElement(By.name("home")).clear();
-        wd.findElement(By.name("home")).sendKeys(contactDaa.getHome_number());
+        wd.findElement(By.name("home")).sendKeys(contactData.getHome_number());
         wd.findElement(By.name("mobile")).click();
         wd.findElement(By.name("mobile")).clear();
-        wd.findElement(By.name("mobile")).sendKeys(contactDaa.getMobile());
+        wd.findElement(By.name("mobile")).sendKeys(contactData.getMobile());
         wd.findElement(By.name("mobile")).click();
         wd.findElement(By.name("mobile")).clear();
         wd.findElement(By.name("mobile")).sendKeys("89165422654");
@@ -58,10 +58,10 @@ public class ContactCreationTests {
         }
         wd.findElement(By.name("byear")).click();
         wd.findElement(By.name("byear")).clear();
-        wd.findElement(By.name("byear")).sendKeys(contactDaa.getYear());
+        wd.findElement(By.name("byear")).sendKeys(contactData.getYear());
         wd.findElement(By.name("email")).click();
         wd.findElement(By.name("email")).clear();
-        wd.findElement(By.name("email")).sendKeys(contactDaa.getEmail());
+        wd.findElement(By.name("email")).sendKeys(contactData.getEmail());
     }
 
     private void gotoAddContact() {

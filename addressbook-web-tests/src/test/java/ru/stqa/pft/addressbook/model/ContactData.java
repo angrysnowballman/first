@@ -1,6 +1,6 @@
 package ru.stqa.pft.addressbook.model;
 
-public class ContactDaa {
+public class ContactData {
     private final String first_name;
     private final String last_name;
     private final String adress;
@@ -9,7 +9,7 @@ public class ContactDaa {
     private final String year;
     private final String email;
 
-    public ContactDaa(String first_name, String Last_name, String adress, String home_number, String mobile, String year, String email) {
+    public ContactData(String first_name, String Last_name, String adress, String home_number, String mobile, String year, String email) {
         this.first_name = first_name;
         last_name = Last_name;
         this.adress = adress;
